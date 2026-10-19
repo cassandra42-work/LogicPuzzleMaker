@@ -1,0 +1,119 @@
+{
+  "id": "parties",
+  "name": "Party Overload",
+  "blurb": "Too many parties, one very busy social calendar.",
+  "order": 5,
+  "entity": ["host", "hosts"],
+  "flavor": {
+    "town": ["Maple Hollow", "Briar Glen", "Cedar Bluff", "Willow Bend", "Fox Run", "Pebble Creek"],
+    "month": ["June", "October", "December", "April", "August"]
+  },
+  "titles": [
+    "Party Overload",
+    "Too Many Invitations",
+    "RSVP Chaos",
+    "The Party Circuit",
+    "{month} Is Booked",
+    "Fashionably Late"
+  ],
+  "stories": [
+    "Somehow every one of your friends decided to throw a party in the same week of {month}. That's {n} {entities}, {n} parties, and one very tired guest trying to keep track of it all.",
+    "The {town} social calendar has never been this crowded. {n_cap} {entities} each threw a different party, and the invitations have all blurred together.",
+    {"needs": ["venue"], "text": "You RSVP'd yes to every party this {month}, and now you're trying to remember which {entity} threw which bash, where it was, and what made it memorable."}
+  ],
+  "default_roles": ["name", "party_theme", "day", "venue", "guests", "food", "start"],
+  "roles": {
+    "name": {
+      "label": "Hosts",
+      "category": "Host",
+      "keywords": ["host", "hosts", "name", "person", "who"]
+    },
+    "party_theme": {
+      "label": "Party themes",
+      "category": "Party theme",
+      "hint": "e.g. luau, masquerade, karaoke",
+      "keywords": ["theme", "themes", "party", "kind", "type"],
+      "samples": ["luau", "masquerade", "murder mystery", "karaoke", "costume", "game night", "pajama", "disco", "taco", "ugly sweater", "pirate", "garden"],
+      "np": ["the host of the {v} party", "the {entity} who threw the {v} party", "the {v} party's host"],
+      "vp": ["threw the {v} party", "hosted the {v} party"],
+      "vp_neg": ["didn't throw the {v} party", "didn't host the {v} party"]
+    },
+    "day": {
+      "label": "Days of the week",
+      "category": "Day",
+      "hint": "days of the week",
+      "keywords": ["day", "days", "weekday", "when"],
+      "samples": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "sample_run": true,
+      "np": ["the {entity} whose party was on {v}", "the {entity} who partied on {v}"],
+      "vp": ["partied on {v}", "held their party on {v}"],
+      "vp_neg": ["didn't party on {v}", "didn't hold their party on {v}"],
+      "more": ["partied later in the week than"],
+      "less": ["partied earlier in the week than"],
+      "more_by": ["held their party {d} after"],
+      "less_by": ["held their party {d} before"],
+      "most": ["threw the last party of the week"],
+      "least": ["threw the first party of the week"]
+    },
+    "venue": {
+      "label": "Venues",
+      "category": "Venue",
+      "hint": "places, including 'the', e.g. the rooftop, the bowling alley",
+      "keywords": ["venue", "venues", "place", "where", "location"],
+      "samples": ["the rooftop", "the backyard", "the bowling alley", "the community hall", "the beach house", "the roller rink", "the karaoke bar", "the park pavilion", "the basement", "the botanical garden"],
+      "np": ["the {entity} who booked {v}", "the {entity} who picked {v} as the venue"],
+      "vp": ["booked {v}", "picked {v} as the venue"],
+      "vp_neg": ["didn't book {v}", "didn't pick {v} as the venue"]
+    },
+    "guests": {
+      "label": "Guest counts",
+      "category": "Guests",
+      "hint": "just the numbers, e.g. 10, 15, 20",
+      "keywords": ["guest", "guests", "people", "crowd", "attendance"],
+      "samples": ["10", "15", "20", "25", "30", "35", "40", "45", "50", "55"],
+      "sample_run": true,
+      "unit": ["guest", "guests"],
+      "np": ["the {entity} who had {vu}", "the {entity} with {vu}"],
+      "vp": ["had {vu}", "invited {vu}"],
+      "vp_neg": ["didn't have {vu}", "didn't invite {vu}"],
+      "more": ["invited more guests than", "had a bigger crowd than"],
+      "less": ["invited fewer guests than", "had a smaller crowd than"],
+      "more_by": ["invited {d} more than"],
+      "less_by": ["invited {d} fewer than"],
+      "most": ["had the biggest crowd"],
+      "least": ["had the smallest crowd"]
+    },
+    "food": {
+      "label": "Signature snacks",
+      "category": "Snack",
+      "hint": "e.g. nachos, sushi rolls, a cheese board",
+      "keywords": ["food", "snack", "snacks", "dish", "menu", "treat"],
+      "samples": ["nachos", "sushi rolls", "a chocolate fountain", "sliders", "a cheese board", "dumplings", "cupcakes", "popcorn", "pizza bagels", "fondue"],
+      "np": ["the {entity} who served {v}"],
+      "vp": ["served {v}", "put out {v}"],
+      "vp_neg": ["didn't serve {v}", "never put out {v}"]
+    },
+    "start": {
+      "label": "Start times",
+      "category": "Start time",
+      "hint": "e.g. 6:00 pm, 7:00 pm, 8:00 pm",
+      "keywords": ["time", "times", "start", "o'clock"],
+      "samples": ["4:00 pm", "5:00 pm", "6:00 pm", "7:00 pm", "8:00 pm", "9:00 pm", "10:00 pm", "11:00 pm"],
+      "sample_run": true,
+      "np": ["the {entity} whose party started at {v}"],
+      "vp": ["started their party at {v}", "opened the doors at {v}"],
+      "vp_neg": ["didn't start their party at {v}", "didn't open the doors at {v}"],
+      "more": ["started later than"],
+      "less": ["started earlier than"],
+      "more_by": ["started {d} after"],
+      "less_by": ["started {d} before"],
+      "most": ["started the latest"],
+      "least": ["started the earliest"]
+    }
+  },
+  "wrappers": [
+    "According to the group chat, {clue}",
+    "Judging by the photos, {clue}",
+    "Your RSVP notes say {clue}"
+  ]
+}

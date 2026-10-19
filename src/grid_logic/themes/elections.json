@@ -1,0 +1,95 @@
+{
+  "id": "elections",
+  "name": "Too Close to Call",
+  "blurb": "Who won and who lost on election night?",
+  "order": 4,
+  "entity": ["candidate", "candidates"],
+  "flavor": {
+    "town": ["Maple Hollow", "Briar Glen", "Cedar Bluff", "Willow Bend", "Fox Run", "Pebble Creek"]
+  },
+  "titles": [
+    "Too Close to Call",
+    "Election Night",
+    "Recount!",
+    "Ballots and Ballyhoo",
+    "The {town} Vote",
+    "Concession Speeches"
+  ],
+  "stories": [
+    {"needs": ["office"], "text": "Election night in {town} was a nail-biter. {n_cap} {entities} were on the ballot, each running for a different seat, and when the dust settled some were celebrating while others were writing concession speeches."},
+    {"needs": ["office"], "text": "The {town} Gazette had the results ready to print when a gust of wind scattered the pages. All the editor remembers is that {n} {entities} ran for {n} different offices, and each race ended its own way."},
+    {"needs": ["result"], "text": "{n_cap} {entities} spent months knocking on doors across {town}. Now the votes are in, and the local news wants to know exactly who won, who lost, and how it happened."},
+    "Campaign season in {town} is finally over. {n_cap} {entities} gave it everything they had, and the local paper wants the full story on every one of them."
+  ],
+  "default_roles": ["name", "office", "result", "votes", "party", "slogan"],
+  "roles": {
+    "name": {
+      "label": "Candidates",
+      "category": "Candidate",
+      "keywords": ["candidate", "candidates", "name", "person", "who"]
+    },
+    "office": {
+      "label": "Offices",
+      "category": "Office",
+      "hint": "e.g. mayor, treasurer, sheriff",
+      "keywords": ["office", "offices", "seat", "position", "race"],
+      "samples": ["mayor", "treasurer", "sheriff", "school board", "city council", "dog catcher", "parks commissioner", "town clerk", "fire chief", "library trustee"],
+      "np": ["the {entity} for {v}", "the {entity} who ran for {v}", "the {v} hopeful"],
+      "vp": ["ran for {v}", "was on the ballot for {v}"],
+      "vp_neg": ["didn't run for {v}", "wasn't on the ballot for {v}"]
+    },
+    "result": {
+      "label": "Results",
+      "category": "Result",
+      "hint": "what happened, written like 'won by a landslide' or 'lost by one vote'",
+      "keywords": ["result", "results", "outcome", "won", "lost", "win", "lose"],
+      "samples": ["won by a landslide", "won by a single vote", "won after a recount", "won as a write-in", "won in a runoff", "lost by a landslide", "lost by a single vote", "lost after a recount", "conceded early", "lost in a runoff"],
+      "np": ["the {entity} who {v}"],
+      "vp": ["{v}"],
+      "vp_neg": ["is not the {entity} who {v}"]
+    },
+    "votes": {
+      "label": "Vote totals",
+      "category": "Votes",
+      "hint": "just the numbers, e.g. 120, 150, 180",
+      "keywords": ["vote", "votes", "ballots", "total", "tally"],
+      "samples": ["120", "150", "180", "210", "240", "270", "300", "330", "360", "390"],
+      "sample_run": true,
+      "unit": ["vote", "votes"],
+      "np": ["the {entity} who got {vu}", "the {entity} with {vu}"],
+      "vp": ["got {vu}", "received {vu}"],
+      "vp_neg": ["didn't get {vu}", "didn't receive {vu}"],
+      "more": ["got more votes than", "out-polled"],
+      "less": ["got fewer votes than", "was out-polled by"],
+      "more_by": ["got {d} more than", "received {d} more than"],
+      "less_by": ["got {d} fewer than", "received {d} fewer than"],
+      "most": ["got the most votes"],
+      "least": ["got the fewest votes"]
+    },
+    "party": {
+      "label": "Parties",
+      "category": "Party",
+      "hint": "e.g. Early Bird Party, Night Owl Party",
+      "keywords": ["party", "parties", "affiliation"],
+      "samples": ["Sensible Shoes Party", "Early Bird Party", "Night Owl Party", "Pizza Party", "Potluck Party", "Bicycle Party", "Quiet Library Party", "Free Parking Party", "Pothole Repair Party", "Longer Recess Party"],
+      "np": ["the {v} candidate", "the {entity} from the {v}"],
+      "vp": ["ran with the {v}", "represents the {v}"],
+      "vp_neg": ["didn't run with the {v}", "doesn't represent the {v}"]
+    },
+    "slogan": {
+      "label": "Slogans",
+      "category": "Slogan",
+      "hint": "short phrases without end punctuation",
+      "keywords": ["slogan", "slogans", "motto", "catchphrase"],
+      "samples": ["Fix the potholes", "Vote for snacks", "A chicken in every yard", "Less talk, more naps", "Honk if you agree", "Bring back the bandstand", "Free sprinkles Fridays", "Make Mondays optional", "Quiet, please", "Bigger bike lanes"],
+      "np": ["the {entity} whose slogan was \"{v}\"", "the {entity} who campaigned on \"{v}\""],
+      "vp": ["campaigned on \"{v}\"", "used the slogan \"{v}\""],
+      "vp_neg": ["didn't campaign on \"{v}\"", "didn't use the slogan \"{v}\""]
+    }
+  },
+  "wrappers": [
+    "According to the official tally, {clue}",
+    "The {town} Gazette reported that {clue}",
+    "Exit polls suggested, correctly, that {clue}"
+  ]
+}

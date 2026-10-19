@@ -1,0 +1,120 @@
+{
+  "id": "favorites",
+  "name": "Favorites Roundup",
+  "blurb": "Everyone's favorite things, and no two alike.",
+  "order": 8,
+  "entity": ["friend", "friends"],
+  "flavor": {
+    "occasion": [
+      "a sleepover",
+      "a long road trip",
+      "the office holiday party",
+      "a family reunion",
+      "a rainy game night"
+    ],
+    "town": ["Maple Hollow", "Briar Glen", "Cedar Bluff", "Willow Bend", "Fox Run", "Pebble Creek"]
+  },
+  "titles": [
+    "Favorites Roundup",
+    "Pick a Favorite",
+    "Top Picks",
+    "Everyone's Favorites",
+    "Favorite Things",
+    "No Two Alike"
+  ],
+  "stories": [
+    "During {occasion}, {n} {entities} played a getting-to-know-you game: everyone named their favorites, and no two answers matched.",
+    "{n_cap} {entities} filled out a silly survey of their all-time favorites for the {town} newsletter. The answers came back scrambled, but every favorite on the list was different.",
+    "It started as a simple question at {occasion}: what's your favorite? By the end of the night, {n} {entities} had each picked something different in every category."
+  ],
+  "default_roles": ["name", "food", "color", "animal", "dessert", "movie", "holiday", "number"],
+  "roles": {
+    "name": {
+      "label": "Friends",
+      "category": "Friend",
+      "keywords": ["friend", "friends", "name", "person", "who"]
+    },
+    "food": {
+      "label": "Favorite foods",
+      "category": "Favorite Food",
+      "hint": "e.g. pizza, tacos, sushi",
+      "keywords": ["food", "foods", "meal", "dish"],
+      "samples": ["pizza", "tacos", "sushi", "pancakes", "ramen", "lasagna", "curry", "dumplings", "burgers", "paella", "pho", "falafel"],
+      "np": ["the {entity} whose favorite food is {v}", "the {v} lover"],
+      "vp": ["loves {v} most", "picked {v} as their favorite food"],
+      "vp_neg": ["doesn't love {v} most", "didn't pick {v} as their favorite food"]
+    },
+    "color": {
+      "label": "Favorite colors",
+      "category": "Favorite Color",
+      "hint": "e.g. red, teal, purple",
+      "keywords": ["color", "colors", "colour", "colours"],
+      "samples": ["red", "orange", "yellow", "green", "teal", "blue", "purple", "pink", "brown", "black", "white", "lavender"],
+      "np": ["the {entity} whose favorite color is {v}", "the {v} fan"],
+      "vp": ["chose {v} as their favorite color", "likes {v} best"],
+      "vp_neg": ["didn't choose {v} as their favorite color", "doesn't like {v} best"]
+    },
+    "animal": {
+      "label": "Favorite animals",
+      "category": "Favorite Animal",
+      "hint": "e.g. otters, owls, pandas",
+      "keywords": ["animal", "animals", "creature"],
+      "samples": ["otters", "owls", "elephants", "foxes", "penguins", "dolphins", "pandas", "tigers", "hedgehogs", "giraffes", "koalas", "octopuses"],
+      "np": ["the {entity} who adores {v}", "the {entity} whose favorite animals are {v}"],
+      "vp": ["adores {v}", "can't get enough of {v}"],
+      "vp_neg": ["doesn't adore {v}", "isn't the biggest fan of {v}"]
+    },
+    "dessert": {
+      "label": "Favorite desserts",
+      "category": "Favorite Dessert",
+      "hint": "e.g. cheesecake, brownies, gelato",
+      "keywords": ["dessert", "desserts", "sweet", "treat"],
+      "samples": ["cheesecake", "brownies", "tiramisu", "apple pie", "gelato", "churros", "baklava", "mochi", "cupcakes", "lemon bars", "banana splits", "cannoli"],
+      "np": ["the {entity} whose favorite dessert is {v}", "the {entity} who always orders {v}"],
+      "vp": ["always orders {v}", "would pick {v} for dessert"],
+      "vp_neg": ["never orders {v}", "wouldn't pick {v} for dessert"]
+    },
+    "movie": {
+      "label": "Favorite movie genres",
+      "category": "Favorite Genre",
+      "hint": "e.g. comedy, horror, sci-fi",
+      "keywords": ["movie", "movies", "film", "genre"],
+      "samples": ["comedy", "horror", "sci-fi", "romance", "westerns", "musicals", "documentaries", "animation", "mysteries", "action"],
+      "np": ["the {entity} who prefers {v}", "the {v} fan"],
+      "vp": ["prefers {v}", "always votes for {v} on movie night"],
+      "vp_neg": ["doesn't prefer {v}", "never votes for {v} on movie night"]
+    },
+    "holiday": {
+      "label": "Favorite holidays",
+      "category": "Favorite Holiday",
+      "hint": "e.g. Halloween, Lunar New Year, Diwali",
+      "keywords": ["holiday", "holidays", "celebration"],
+      "samples": ["New Year's Eve", "Valentine's Day", "Halloween", "Thanksgiving", "Lunar New Year", "Diwali", "Hanukkah", "Christmas", "Eid al-Fitr", "Mardi Gras", "St. Patrick's Day", "Earth Day"],
+      "np": ["the {entity} whose favorite holiday is {v}", "the {entity} who lives for {v}"],
+      "vp": ["lives for {v}", "picked {v} as their favorite holiday"],
+      "vp_neg": ["doesn't live for {v}", "didn't pick {v} as their favorite holiday"]
+    },
+    "number": {
+      "label": "Favorite numbers",
+      "category": "Favorite Number",
+      "hint": "just the numbers, e.g. 3, 7, 13",
+      "keywords": ["number", "numbers", "lucky"],
+      "samples": ["3", "7", "8", "11", "12", "13", "21", "42", "99", "100"],
+      "sample_run": true,
+      "np": ["the {entity} whose favorite number is {v}", "the {entity} who picked {v}"],
+      "vp": ["picked {v}", "swears by the number {v}"],
+      "vp_neg": ["didn't pick {v}", "doesn't swear by the number {v}"],
+      "more": ["picked a higher number than"],
+      "less": ["picked a lower number than"],
+      "more_by": ["picked a number {d} higher than"],
+      "less_by": ["picked a number {d} lower than"],
+      "most": ["picked the highest number"],
+      "least": ["picked the lowest number"]
+    }
+  },
+  "wrappers": [
+    "According to the survey answers, {clue}",
+    "As everyone found out at {occasion}, {clue}",
+    "Someone remembered that {clue}"
+  ]
+}

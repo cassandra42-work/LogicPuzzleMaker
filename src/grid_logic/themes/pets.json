@@ -1,0 +1,119 @@
+{
+  "id": "pets",
+  "name": "Tails on Tour",
+  "blurb": "Where did everyone take their pet?",
+  "order": 3,
+  "entity": ["pet owner", "pet owners"],
+  "flavor": {
+    "town": ["Maple Hollow", "Briar Glen", "Cedar Bluff", "Willow Bend", "Fox Run", "Pebble Creek"]
+  },
+  "titles": [
+    "Tails on Tour",
+    "Paws About Town",
+    "The Great Pet Outing",
+    "Where in {town} Is My Pet?",
+    "Day Trips with Furry Friends",
+    "Leash Lap"
+  ],
+  "stories": [
+    {"needs": ["destination"], "text": "Last week, {n} {entities} in {town} each took their pet on a special outing. Every pet went somewhere different, and each owner swears their pet had the best time."},
+    {"needs": ["pet_type", "destination"], "text": "The {town} Pet Club challenged its members to give their pets an adventure. {n_cap} {entities} took up the challenge, each heading to a different spot with a different animal."},
+    {"needs": ["destination"], "text": "{n_cap} {entities} pinned photos of their pets' outings to the bulletin board at the {town} vet clinic. The photos fell off overnight, and now nobody can remember who went where."},
+    "{n_cap} {entities} from the {town} Pet Club spent last week spoiling their pets. Now the club newsletter wants the details, and everyone's memories have gotten a little mixed up."
+  ],
+  "default_roles": ["name", "pet_type", "destination", "day", "pet_name", "time", "miles"],
+  "roles": {
+    "name": {
+      "label": "Owners",
+      "category": "Owner",
+      "keywords": ["owner", "owners", "name", "person"]
+    },
+    "pet_type": {
+      "label": "Kinds of pet",
+      "category": "Pet",
+      "hint": "kinds of animal, e.g. dog, parrot, iguana",
+      "keywords": ["pet", "pets", "animal", "animals", "species", "kind"],
+      "samples": ["dog", "cat", "hamster", "parrot", "rabbit", "ferret", "iguana", "guinea pig", "tortoise", "goldfish", "hedgehog", "chinchilla"],
+      "np": ["the owner of the {v}", "the {entity} who brought the {v}", "the {v}'s owner"],
+      "vp": ["brought the {v}", "owns the {v}", "took the {v} along"],
+      "vp_neg": ["didn't bring the {v}", "doesn't own the {v}", "didn't take the {v} along"]
+    },
+    "pet_name": {
+      "label": "Pet names",
+      "category": "Pet's name",
+      "hint": "e.g. Biscuit, Pickles, Mochi",
+      "keywords": ["pet name", "pet's name", "named", "called"],
+      "samples": ["Biscuit", "Pickles", "Mochi", "Captain", "Waffles", "Pepper", "Noodle", "Ziggy", "Clover", "Peanut", "Tofu", "Sprout"],
+      "np": ["{v}'s owner", "the {entity} who brought {v}"],
+      "vp": ["brought {v}", "is {v}'s owner"],
+      "vp_neg": ["didn't bring {v}", "isn't {v}'s owner"]
+    },
+    "destination": {
+      "label": "Destinations",
+      "category": "Destination",
+      "hint": "places, including 'the' if needed, e.g. the beach, the vet",
+      "keywords": ["destination", "place", "places", "where", "location", "spot"],
+      "samples": ["the beach", "the dog park", "the farmers market", "the lake", "Grandma's house", "the pet store", "the vet", "the hiking trail", "the library lawn", "the ice cream shop"],
+      "np": ["the {entity} who went to {v}", "the {entity} who visited {v}"],
+      "vp": ["went to {v}", "visited {v}", "spent the afternoon at {v}"],
+      "vp_neg": ["didn't go to {v}", "never made it to {v}", "didn't visit {v}"]
+    },
+    "day": {
+      "label": "Days of the week",
+      "category": "Day",
+      "hint": "days of the week",
+      "keywords": ["day", "days", "weekday", "when"],
+      "samples": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "sample_run": true,
+      "np": ["the {entity} who went out on {v}", "the {entity} with the {v} outing"],
+      "vp": ["went out on {v}", "picked {v} for the outing"],
+      "vp_neg": ["didn't go out on {v}", "skipped {v}"],
+      "more": ["went out later in the week than"],
+      "less": ["went out earlier in the week than"],
+      "more_by": ["went out {d} after"],
+      "less_by": ["went out {d} before"],
+      "most": ["went out latest in the week"],
+      "least": ["went out earliest in the week"]
+    },
+    "time": {
+      "label": "Start times",
+      "category": "Start time",
+      "hint": "e.g. 9:00 am, 10:00 am, 11:00 am",
+      "keywords": ["time", "times", "start", "o'clock"],
+      "samples": ["8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm"],
+      "sample_run": true,
+      "np": ["the {entity} who left at {v}", "the {entity} with the {v} start"],
+      "vp": ["left at {v}", "set out at {v}"],
+      "vp_neg": ["didn't leave at {v}", "didn't set out at {v}"],
+      "more": ["left later than", "set out later than"],
+      "less": ["left earlier than", "set out earlier than"],
+      "more_by": ["left {d} after"],
+      "less_by": ["left {d} before"],
+      "most": ["left last", "was the last to set out"],
+      "least": ["left first", "was the first to set out"]
+    },
+    "miles": {
+      "label": "Miles walked",
+      "category": "Miles",
+      "hint": "just the numbers, e.g. 1, 2, 3",
+      "keywords": ["mile", "miles", "distance", "walked"],
+      "samples": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      "sample_run": true,
+      "unit": ["mile", "miles"],
+      "np": ["the {entity} who walked {vu}", "the {entity} who covered {vu}"],
+      "vp": ["walked {vu}", "covered {vu}"],
+      "vp_neg": ["didn't walk {vu}", "didn't cover {vu}"],
+      "more": ["walked farther than"],
+      "less": ["walked less than", "covered less ground than"],
+      "more_by": ["walked {d} farther than"],
+      "less_by": ["walked {d} less than"],
+      "most": ["walked the farthest"],
+      "least": ["walked the shortest distance"]
+    }
+  },
+  "wrappers": [
+    "According to the {town} Pet Club newsletter, {clue}",
+    "The photos prove that {clue}",
+    "A nosy neighbor noticed that {clue}"
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "id": "crowdwork",
+  "name": "Top of the Queue",
+  "blurb": "Which crowdwork project was the best?",
+  "order": 9,
+  "entity": ["worker", "workers"],
+  "flavor": {
+    "forum": ["the worker forum", "the team chat", "the weekly check-in call", "the community message board"],
+    "month": ["January", "March", "May", "July", "September", "November"]
+  },
+  "titles": [
+    "Top of the Queue",
+    "Project Reviews",
+    "Five-Star Tasks",
+    "Best in Queue",
+    "The Task Board",
+    "Rate My Project"
+  ],
+  "stories": [
+    {"needs": ["project"], "text": "{n_cap} remote {entities} each spent {month} on a different crowdwork project. When they compared notes in {forum}, everyone had a strong opinion about which project was the best."},
+    {"needs": ["project"], "text": "Everyone in {forum} has been arguing for weeks: which crowdwork project is actually worth the time? {n_cap} {entities} each reviewed a different project, and their notes are all mixed up."},
+    {"needs": ["project"], "text": "At the end of {month}, {n} {entities} posted reviews of the crowdwork projects they'd been working on. The reviews got jumbled, and now nobody is sure who worked on what."},
+    "{n_cap} remote {entities} swapped stories in {forum} at the end of {month}. Their notes got mixed together, and now nobody is sure whose details are whose."
+  ],
+  "default_roles": ["name", "project", "rating", "pay", "hours", "task_type"],
+  "roles": {
+    "name": {
+      "label": "Workers",
+      "category": "Worker",
+      "keywords": ["worker", "workers", "name", "person", "who", "contributor"]
+    },
+    "project": {
+      "label": "Projects",
+      "category": "Project",
+      "hint": "project names, e.g. Bluebird, Atlas, Nimbus",
+      "keywords": ["project", "projects", "queue", "gig"],
+      "samples": ["Bluebird", "Atlas", "Nimbus", "Juniper", "Lighthouse", "Mosaic", "Falcon", "Orchard", "Compass", "Paperclip", "Sparrow", "Tundra"],
+      "np": ["the {entity} on the {v} project", "the {entity} assigned to {v}"],
+      "vp": ["worked on the {v} project", "was assigned to {v}"],
+      "vp_neg": ["didn't work on the {v} project", "wasn't assigned to {v}"]
+    },
+    "rating": {
+      "label": "Ratings",
+      "category": "Rating",
+      "hint": "scores out of 10, just the numbers, e.g. 4, 6, 9",
+      "keywords": ["rating", "ratings", "score", "scores", "stars", "review"],
+      "samples": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      "sample_run": true,
+      "unit": ["point", "points"],
+      "np": ["the {entity} who rated their project {v} out of 10", "the {entity} whose project scored {v}"],
+      "vp": ["rated their project {v} out of 10", "gave their project a score of {v}"],
+      "vp_neg": ["didn't rate their project {v} out of 10", "didn't give their project a score of {v}"],
+      "more": ["rated their project higher than"],
+      "less": ["rated their project lower than"],
+      "more_by": ["rated their project {d} higher than"],
+      "less_by": ["rated their project {d} lower than"],
+      "most": ["rated their project the best", "gave the top score"],
+      "least": ["rated their project the worst", "gave the lowest score"]
+    },
+    "pay": {
+      "label": "Pay rates",
+      "category": "Pay Rate",
+      "hint": "hourly rates, e.g. $15, $18, $20",
+      "keywords": ["pay", "rate", "wage", "hourly", "$"],
+      "samples": ["$12", "$14", "$16", "$18", "$20", "$22", "$24", "$26", "$28", "$30"],
+      "sample_run": true,
+      "np": ["the {entity} earning {v} an hour", "the {entity} paid {v} an hour"],
+      "vp": ["earns {v} an hour", "is paid {v} an hour"],
+      "vp_neg": ["doesn't earn {v} an hour", "isn't paid {v} an hour"],
+      "more": ["earns more per hour than", "has a better pay rate than"],
+      "less": ["earns less per hour than", "has a lower pay rate than"],
+      "more_by": ["earns {d} more per hour than"],
+      "less_by": ["earns {d} less per hour than"],
+      "most": ["has the best pay rate"],
+      "least": ["has the lowest pay rate"]
+    },
+    "hours": {
+      "label": "Hours logged",
+      "category": "Hours",
+      "hint": "just the numbers, e.g. 10, 20, 30",
+      "keywords": ["hour", "hours", "time", "logged"],
+      "samples": ["5", "10", "15", "20", "25", "30", "35", "40", "45", "50"],
+      "sample_run": true,
+      "unit": ["hour", "hours"],
+      "np": ["the {entity} who logged {vu}", "the {entity} who put in {vu}"],
+      "vp": ["logged {vu}", "put in {vu}"],
+      "vp_neg": ["didn't log {vu}", "didn't put in {vu}"],
+      "more": ["logged more hours than"],
+      "less": ["logged fewer hours than"],
+      "more_by": ["logged {d} more than"],
+      "less_by": ["logged {d} fewer than"],
+      "most": ["logged the most hours"],
+      "least": ["logged the fewest hours"]
+    },
+    "task_type": {
+      "label": "Task types",
+      "category": "Task Type",
+      "hint": "e.g. image labeling, audio transcription",
+      "keywords": ["task", "tasks", "type", "work"],
+      "samples": ["image labeling", "audio transcription", "survey testing", "product tagging", "website testing", "map editing", "receipt entry", "translation review", "search rating", "content review", "data entry", "video captioning"],
+      "np": ["the {entity} doing {v}", "the {entity} whose project involved {v}"],
+      "vp": ["did {v}", "spent the project on {v}"],
+      "vp_neg": ["didn't do {v}", "never touched {v}"]
+    }
+  },
+  "wrappers": [
+    "According to {forum}, {clue}",
+    "The project dashboards show that {clue}",
+    "Someone in {forum} pointed out that {clue}"
+  ]
+}

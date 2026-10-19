@@ -1,0 +1,123 @@
+{
+  "id": "champions",
+  "name": "Champion Select",
+  "blurb": "Which champion does each player main?",
+  "order": 1,
+  "entity": ["player", "players"],
+  "options": [
+    {
+      "key": "game",
+      "type": "text",
+      "prompt": "What's the name of the game?",
+      "default": "Arena of Ages"
+    }
+  ],
+  "flavor": {
+    "event": [
+      "the Friday night scrims",
+      "the campus tournament",
+      "a 24-hour charity stream",
+      "the neighborhood LAN party",
+      "the season qualifiers",
+      "a rainy-day marathon session"
+    ],
+    "venue": [
+      "Dex's basement",
+      "the library's gaming room",
+      "the Pixel Pit cafe",
+      "a crowded online lobby",
+      "the community center"
+    ]
+  },
+  "titles": [
+    "Champion Select",
+    "{game} Mains",
+    "Who Mains Who?",
+    "Pick Your Champion",
+    "Lobby Legends",
+    "Locked In"
+  ],
+  "stories": [
+    {"needs": ["champion"], "text": "{n_cap} {entities} showed up for {event} in {game}. Each one locked in a different favorite champion, and nobody would stop talking about their picks."},
+    {"needs": ["champion"], "text": "The {game} group chat has been arguing for weeks about whose main is the best. To settle it, {n} {entities} met up at {venue} and each played their favorite champion one more time."},
+    {"needs": ["champion"], "text": "Every {entity} in the {game} club has a favorite champion they refuse to give up. After {event}, the club captain tried to write down everyone's picks, but the notes got scrambled."},
+    "{n_cap} {entities} from the {game} club met up at {venue} after {event}. Everyone remembers the night a little differently, and the notes they kept are a mess."
+  ],
+  "default_roles": ["name", "champion", "position", "rank", "hours", "platform"],
+  "roles": {
+    "name": {
+      "label": "Players",
+      "category": "Player",
+      "hint": "player names or gamer tags, e.g. Bonita, Daryl, Laura",
+      "keywords": ["player", "players", "gamer", "tag", "name"]
+    },
+    "champion": {
+      "label": "Champions",
+      "category": "Champion",
+      "hint": "champion or character names from the game",
+      "keywords": ["champion", "champ", "hero", "character", "main", "pick"],
+      "samples": ["Ironhide", "Vexa", "Solenne", "Grimjaw", "Nyx", "Bramble", "Kaito", "Ember", "Talon", "Orrin", "Seraph", "Mox"],
+      "np": ["the {v} main", "the {entity} who mains {v}", "the {entity} who always picks {v}"],
+      "vp": ["mains {v}", "always picks {v}", "plays {v}"],
+      "vp_neg": ["doesn't main {v}", "never picks {v}", "doesn't play {v}"]
+    },
+    "position": {
+      "label": "Team positions",
+      "category": "Position",
+      "hint": "team roles, e.g. tank, support, jungle",
+      "keywords": ["role", "position", "class", "lane", "slot"],
+      "samples": ["tank", "support", "jungle", "mid lane", "top lane", "carry", "healer", "scout", "sniper", "flex"],
+      "np": ["the {v} player", "the {entity} who plays {v}", "the {entity} in the {v} slot"],
+      "vp": ["plays {v}", "fills the {v} slot"],
+      "vp_neg": ["doesn't play {v}", "never fills the {v} slot"]
+    },
+    "rank": {
+      "label": "Ranks",
+      "category": "Rank",
+      "hint": "ranks from lowest to highest, e.g. Bronze, Silver, Gold",
+      "keywords": ["rank", "ranks", "tier", "league", "division"],
+      "samples": ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Emerald", "Diamond", "Master", "Grandmaster", "Challenger"],
+      "sample_run": true,
+      "np": ["the {v}-ranked {entity}", "the {entity} ranked {v}"],
+      "vp": ["is ranked {v}", "sits at {v}"],
+      "vp_neg": ["isn't ranked {v}", "doesn't sit at {v}"],
+      "more": ["is ranked higher than", "outranks"],
+      "less": ["is ranked lower than", "is outranked by"],
+      "most": ["has the highest rank"],
+      "least": ["has the lowest rank"]
+    },
+    "hours": {
+      "label": "Hours played",
+      "category": "Hours played",
+      "hint": "just the numbers, e.g. 100, 150, 200",
+      "keywords": ["hour", "hours", "playtime", "time played"],
+      "samples": ["100", "150", "200", "250", "300", "350", "400", "450", "500", "550"],
+      "sample_run": true,
+      "unit": ["hour", "hours"],
+      "np": ["the {entity} with {vu} played", "the {entity} who has logged {vu}"],
+      "vp": ["has {vu} played", "has logged {vu}"],
+      "vp_neg": ["doesn't have {vu} played", "hasn't logged {vu}"],
+      "more": ["has played more than", "has logged more hours than"],
+      "less": ["has played less than", "has logged fewer hours than"],
+      "more_by": ["has played {d} more than", "has logged {d} more than"],
+      "less_by": ["has played {d} less than", "has logged {d} fewer than"],
+      "most": ["has played the most", "has logged the most hours"],
+      "least": ["has played the least", "has logged the fewest hours"]
+    },
+    "platform": {
+      "label": "Platforms",
+      "category": "Platform",
+      "hint": "e.g. PC, console, handheld",
+      "keywords": ["platform", "system", "device", "console"],
+      "samples": ["PC", "console", "handheld", "laptop", "tablet", "phone", "cloud streaming", "arcade cabinet"],
+      "np": ["the {entity} who plays on {v}", "the {v} {entity}"],
+      "vp": ["plays on {v}", "games on {v}"],
+      "vp_neg": ["doesn't play on {v}", "never games on {v}"]
+    }
+  },
+  "wrappers": [
+    "According to the match history, {clue}",
+    "The stream chat confirmed that {clue}",
+    "If the leaderboard is right, {clue}"
+  ]
+}

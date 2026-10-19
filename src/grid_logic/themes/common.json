@@ -1,0 +1,120 @@
+{
+  "people_names": [
+    "Abigail", "Adrian", "Aisha", "Alonzo", "Amara", "Anders", "Beatrix", "Bonita",
+    "Bruno", "Camille", "Cedric", "Daryl", "Delphine", "Desmond", "Elena", "Emeka",
+    "Esther", "Felix", "Fiona", "Gideon", "Greta", "Hector", "Imani", "Ingrid",
+    "Isaac", "Jasmine", "Jonah", "Kenji", "Keiko", "Laura", "Lionel", "Luz",
+    "Malik", "Marisol", "Mario", "Mavis", "Nadia", "Nolan", "Odette", "Omar",
+    "Penelope", "Priya", "Quentin", "Rafael", "Rosalind", "Ruby", "Santiago", "Sheila",
+    "Silas", "Tamsin", "Theo", "Ursula", "Vikram", "Wendell", "Winona", "Xavier",
+    "Yara", "Yusuf", "Zelda", "Zane"
+  ],
+
+  "roles": {
+    "name": {
+      "label": "Names",
+      "category": "Name",
+      "hint": "first names, e.g. Bonita, Daryl, Laura",
+      "keywords": ["name", "names", "person", "people", "who", "friend", "friends"],
+      "person": true,
+      "samples": "@people_names",
+      "np": ["{v}"],
+      "vp": ["is {v}"],
+      "vp_neg": ["is not {v}"]
+    },
+    "age": {
+      "label": "Ages",
+      "category": "Age",
+      "hint": "just the numbers, e.g. 24, 27, 30",
+      "keywords": ["age", "ages", "old", "years old"],
+      "samples": ["21", "24", "27", "30", "33", "36", "39", "42", "45", "48", "51", "54"],
+      "sample_run": true,
+      "unit": ["year", "years"],
+      "np": ["the {v}-year-old", "the {entity} who is {v}"],
+      "vp": ["is {v}", "is {v} years old"],
+      "vp_neg": ["is not {v}", "isn't {v} years old"],
+      "more": ["is older than"],
+      "less": ["is younger than"],
+      "more_by": ["is {d} older than"],
+      "less_by": ["is {d} younger than"],
+      "most": ["is the oldest"],
+      "least": ["is the youngest"]
+    },
+    "other": {
+      "label": "Something else",
+      "category": "Category",
+      "hint": "anything at all; clues will use the category name",
+      "keywords": [],
+      "samples": [],
+      "np": ["the {entity} with {v}", "the {entity} whose {cat} is {v}"],
+      "vp": ["has {v} as their {cat}", "is matched with {v}"],
+      "vp_neg": ["doesn't have {v} as their {cat}", "is not matched with {v}"]
+    }
+  },
+
+  "ordered_generic": {
+    "number": {
+      "more": ["has a higher {cat} than"],
+      "less": ["has a lower {cat} than"],
+      "more_by": ["has a {cat} {d} higher than"],
+      "less_by": ["has a {cat} {d} lower than"],
+      "most": ["has the highest {cat}"],
+      "least": ["has the lowest {cat}"]
+    },
+    "sequence": {
+      "more": ["has a later {cat} than"],
+      "less": ["has an earlier {cat} than"],
+      "more_by": ["has a {cat} {d} later than"],
+      "less_by": ["has a {cat} {d} earlier than"],
+      "most": ["has the latest {cat}"],
+      "least": ["has the earliest {cat}"]
+    }
+  },
+
+  "clues": {
+    "same": [
+      "{a} {vp_b}.",
+      "{b} {vp_a}.",
+      "{a} is {b}.",
+      "{b} is {a}."
+    ],
+    "superlative": [
+      "{a} {sup}."
+    ],
+    "different": [
+      "{a} {vpn_b}.",
+      "{b} {vpn_a}.",
+      "{a} is not {b}.",
+      "{a} and {b} are different {entities}.",
+      "{b} and {a} are two different {entities}."
+    ],
+    "either": [
+      "{a} is either {b} or {c}.",
+      "{a} either {vp_b} or {vp_c}.",
+      "either {b} or {c} is {a}."
+    ],
+    "neither": [
+      "neither {a} nor {b} {vp_c}.",
+      "{c} is neither {a} nor {b}.",
+      "neither {a} nor {b} is {c}."
+    ],
+    "pair": [
+      "of {a} and {b}, one {vp_c} and the other {vp_d}.",
+      "[names] {c} and {d} are {a} and {b}, in some order.",
+      "between {a} and {b}, one is {c} and the other is {d}."
+    ],
+    "distinct": [
+      "{list} are {count} different {entities}.",
+      "{list} are all different {entities}."
+    ],
+    "greater": [
+      "{a} {cmp} {b}."
+    ]
+  },
+
+  "tasks": [
+    "Use the clues to work out each {entity}'s {cat_list}.",
+    "Can you work out each {entity}'s {cat_list}?",
+    "Using the clues and the grid, figure out each {entity}'s {cat_list}."
+  ]
+}

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grid-logic-puzzle-maker"
+version = "0.1.0"
+description = "Generate classic grid logic puzzles as printable, fillable PDFs and local web pages."
+readme = "README.md"
+authors = [{ name = "Cassandra Morris", email = "lilcomputerperson@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "reportlab>=4.0",
+    "pypdf>=4.0",
+]
+
+[project.scripts]
+grid-logic = "grid_logic.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"grid_logic.themes" = ["*.json"]

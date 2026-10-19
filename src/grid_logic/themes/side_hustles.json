@@ -1,0 +1,105 @@
+{
+  "id": "side_hustles",
+  "name": "Between Gigs",
+  "blurb": "Odd jobs people pick up while they're between jobs.",
+  "order": 7,
+  "entity": ["friend", "friends"],
+  "flavor": {
+    "town": ["Maple Hollow", "Briar Glen", "Cedar Bluff", "Willow Bend", "Fox Run", "Pebble Creek"],
+    "month": ["January", "March", "May", "July", "September", "November"]
+  },
+  "titles": [
+    "Between Gigs",
+    "Side Hustle Season",
+    "Odd Jobs Only",
+    "Will Work for Rent",
+    "Hustle Mode",
+    "The Gig Economy"
+  ],
+  "stories": [
+    {"needs": ["odd_job"], "text": "{n_cap} {entities} in {town} found themselves between jobs this {month}. Rather than wait around, each one picked up a different side hustle to keep the lights on."},
+    {"needs": ["odd_job"], "text": "Getting laid off was the easy part. Now {n} {entities} are hustling their way through the job hunt, each with a different odd job and a different idea of what counts as temporary."},
+    "The job center in {town} started a bulletin board for side gigs, and {n} {entities} jumped at the chance. Now they meet every Friday to compare earnings and swap stories."
+  ],
+  "default_roles": ["name", "odd_job", "earnings", "old_job", "hours", "weeks"],
+  "roles": {
+    "odd_job": {
+      "label": "Odd jobs",
+      "category": "Odd job",
+      "hint": "e.g. dog walking, house sitting, tutoring",
+      "keywords": ["odd job", "hustle", "gig", "side", "job"],
+      "samples": ["dog walking", "house sitting", "furniture assembly", "tutoring", "food delivery", "lawn mowing", "babysitting", "moving help", "car washing", "grocery shopping", "closet organizing", "snow shoveling"],
+      "np": ["the {entity} who took up {v}", "the {entity} doing {v}"],
+      "vp": ["took up {v}", "makes ends meet with {v}"],
+      "vp_neg": ["didn't take up {v}", "doesn't do {v}"]
+    },
+    "earnings": {
+      "label": "Weekly earnings",
+      "category": "Earnings",
+      "hint": "amounts, e.g. $150, $200, $250",
+      "keywords": ["earning", "earnings", "pay", "money", "income", "$"],
+      "samples": ["$100", "$150", "$200", "$250", "$300", "$350", "$400", "$450", "$500", "$550"],
+      "sample_run": true,
+      "np": ["the {entity} who earned {v}", "the {entity} making {v} a week"],
+      "vp": ["earned {v}", "makes {v} a week"],
+      "vp_neg": ["didn't earn {v}", "doesn't make {v} a week"],
+      "more": ["earned more than", "brought in more than"],
+      "less": ["earned less than", "brought in less than"],
+      "more_by": ["earned {d} more than"],
+      "less_by": ["earned {d} less than"],
+      "most": ["earned the most"],
+      "least": ["earned the least"]
+    },
+    "old_job": {
+      "label": "Former jobs",
+      "category": "Former job",
+      "hint": "e.g. bank teller, barista, data analyst",
+      "keywords": ["former", "old", "previous", "past", "career"],
+      "samples": ["bank teller", "graphic designer", "barista", "sales manager", "travel agent", "newspaper editor", "video store clerk", "data analyst", "architect", "flight attendant"],
+      "np": ["the former {v}", "the ex-{v}"],
+      "vp": ["is the former {v}", "is the ex-{v}"],
+      "vp_neg": ["is not the former {v}", "isn't the ex-{v}"]
+    },
+    "hours": {
+      "label": "Hours per week",
+      "category": "Hours",
+      "hint": "just the numbers, e.g. 5, 10, 15",
+      "keywords": ["hour", "hours", "time", "schedule"],
+      "samples": ["5", "10", "15", "20", "25", "30", "35", "40", "45", "50"],
+      "sample_run": true,
+      "unit": ["hour", "hours"],
+      "np": ["the {entity} who works {vu} a week", "the {entity} putting in {vu} a week"],
+      "vp": ["works {vu} a week", "puts in {vu} a week"],
+      "vp_neg": ["doesn't work {vu} a week", "doesn't put in {vu} a week"],
+      "more": ["works more hours than", "puts in more time than"],
+      "less": ["works fewer hours than", "puts in less time than"],
+      "more_by": ["works {d} more than"],
+      "less_by": ["works {d} fewer than"],
+      "most": ["works the most hours"],
+      "least": ["works the fewest hours"]
+    },
+    "weeks": {
+      "label": "Weeks unemployed",
+      "category": "Weeks unemployed",
+      "hint": "just the numbers, e.g. 2, 4, 6",
+      "keywords": ["week", "weeks", "unemployed", "laid off", "job hunt"],
+      "samples": ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
+      "sample_run": true,
+      "unit": ["week", "weeks"],
+      "np": ["the {entity} who has been out of work for {vu}", "the {entity} who has been job hunting for {vu}"],
+      "vp": ["has been out of work for {vu}", "has been job hunting for {vu}"],
+      "vp_neg": ["hasn't been out of work for {vu}", "hasn't been job hunting for {vu}"],
+      "more": ["has been out of work longer than"],
+      "less": ["was laid off more recently than"],
+      "more_by": ["has been out of work {d} longer than"],
+      "less_by": ["was laid off {d} more recently than"],
+      "most": ["has been out of work the longest"],
+      "least": ["was laid off most recently"]
+    }
+  },
+  "wrappers": [
+    "According to their shared budget spreadsheet, {clue}",
+    "At the Friday meetup, someone pointed out that {clue}",
+    "Judging by the group's receipts, {clue}"
+  ]
+}

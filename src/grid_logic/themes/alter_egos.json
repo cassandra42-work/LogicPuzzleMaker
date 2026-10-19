@@ -1,0 +1,238 @@
+{
+  "id": "alter_egos",
+  "name": "Secret Identities",
+  "blurb": "Who's really behind each alter ego?",
+  "order": 6,
+  "entity": ["person", "people"],
+  "options": [
+    {
+      "key": "ego",
+      "type": "choice",
+      "prompt": "What kind of alter egos?",
+      "choices": ["superhero", "spy", "criminal mastermind"]
+    }
+  ],
+  "flavor": {
+    "city": ["Port Lumen", "New Halcyon", "Crescent City", "Ironwood", "Bayview Heights", "Stormhaven"]
+  },
+  "default_roles": ["name", "alias", "ability", "day_job", "base", "nemesis", "years"],
+  "roles": {
+    "name": {
+      "label": "Real names",
+      "category": "Real name",
+      "keywords": ["real", "name", "identity", "civilian", "person"]
+    },
+    "alias": {
+      "label": "Alter egos",
+      "category": "Alter ego",
+      "hint": "secret names",
+      "keywords": ["alter ego", "alias", "codename", "secret", "hero name", "villain name"],
+      "np": ["{v}", "the {entity} behind {v}"],
+      "vp": ["is secretly {v}", "is the one behind {v}"],
+      "vp_neg": ["is not secretly {v}", "isn't the one behind {v}"]
+    },
+    "ability": {
+      "keywords": ["power", "powers", "ability", "gadget", "gadgets", "scheme", "schemes", "plot", "plan"]
+    },
+    "day_job": {
+      "keywords": ["job", "jobs", "day job", "cover", "work", "occupation"]
+    },
+    "base": {
+      "keywords": ["base", "hq", "headquarters", "lair", "hideout", "safe house"],
+      "np": ["the {entity} based in {v}", "the {entity} who operates out of {v}"],
+      "vp": ["is based in {v}", "operates out of {v}"],
+      "vp_neg": ["isn't based in {v}", "doesn't operate out of {v}"]
+    },
+    "nemesis": {
+      "keywords": ["nemesis", "enemy", "rival", "arch", "handler", "boss"]
+    },
+    "years": {
+      "label": "Years active",
+      "category": "Years active",
+      "hint": "just the numbers, e.g. 1, 2, 3",
+      "keywords": ["year", "years", "active", "experience"],
+      "samples": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      "sample_run": true,
+      "unit": ["year", "years"],
+      "np": ["the {entity} who has been active for {vu}"],
+      "vp": ["has been active for {vu}", "has been at it for {vu}"],
+      "vp_neg": ["hasn't been active for {vu}", "hasn't been at it for {vu}"],
+      "more": ["has been active longer than"],
+      "less": ["has been active for less time than", "is newer to the game than"],
+      "more_by": ["has been active {d} longer than"],
+      "less_by": ["started {d} later than"],
+      "most": ["has been active the longest"],
+      "least": ["is the newest of the bunch"]
+    }
+  },
+  "variants": {
+    "superhero": {
+      "entity": ["hero", "heroes"],
+      "vars": {"group": "the League of Extraordinary Neighbors"},
+      "titles": ["Secret Identities", "Unmasked!", "Capes and Day Jobs", "Who's Behind the Mask?", "Heroes of {city}"],
+      "stories": [
+        {"needs": ["alias"], "text": "By day, {n} ordinary citizens of {city} live perfectly normal lives. By night, each one becomes a different superhero. {group} keeps a record of who's who, but the files were accidentally shredded."},
+        {"needs": ["name"], "text": "A reporter at the {city} Daily is one story away from unmasking every hero in town. The list of suspects is down to {n} names, and the reporter's notes are full of clues."},
+        {"needs": ["name"], "text": "Everyone in {city} knows the {n} {entities} who protect it. Nobody knows who they really are, except you, if you can crack these clues."},
+        "{city} has never been safer, thanks to {n} {entities} who patrol its streets. {group} keeps careful files on all of them, but a coffee spill has left the records a mess."
+      ],
+      "roles": {
+        "alias": {
+          "samples": ["Captain Comet", "The Crimson Shield", "Night Lark", "Professor Thunder", "Lady Lightning", "Iron Sparrow", "The Silver Fox", "Quantum Kid", "Major Marvelous", "The Gray Ghost"]
+        },
+        "ability": {
+          "label": "Superpowers",
+          "category": "Superpower",
+          "hint": "e.g. flight, invisibility, telepathy",
+          "samples": ["flight", "invisibility", "super strength", "telepathy", "super speed", "shape-shifting", "ice breath", "weather control", "teleportation", "x-ray vision"],
+          "np": ["the {entity} with {v}", "the {entity} who has the power of {v}"],
+          "vp": ["has {v}", "has the power of {v}"],
+          "vp_neg": ["doesn't have {v}", "lacks the power of {v}"]
+        },
+        "day_job": {
+          "label": "Day jobs",
+          "category": "Day job",
+          "hint": "e.g. librarian, barista, dentist",
+          "samples": ["librarian", "barista", "dentist", "mail carrier", "accountant", "florist", "bus driver", "substitute teacher", "plumber", "yoga instructor"],
+          "np": ["the {v}", "the {entity} who works as the town {v}"],
+          "vp": ["is the {v}", "works as the town {v} by day"],
+          "vp_neg": ["is not the {v}", "doesn't work as the town {v}"]
+        },
+        "base": {
+          "label": "Headquarters",
+          "category": "Headquarters",
+          "hint": "places, including 'the', e.g. the lighthouse",
+          "samples": ["the lighthouse", "the old subway tunnel", "the clock tower", "the observatory", "the abandoned mall", "the treehouse", "the mountain cave", "the rooftop garden", "the submarine", "the bowling alley"]
+        },
+        "nemesis": {
+          "label": "Nemeses",
+          "category": "Nemesis",
+          "hint": "villain names",
+          "samples": ["Doctor Dread", "The Velvet Fist", "Baron Von Gloom", "Madame Mayhem", "The Puppeteer", "Count Calamity", "Professor Paradox", "Lord Ledger", "The Gilded Viper", "Mister Midnight"],
+          "np": ["the {entity} whose nemesis is {v}", "the {entity} who battles {v}"],
+          "vp": ["battles {v}", "has {v} as a nemesis"],
+          "vp_neg": ["doesn't battle {v}", "doesn't have {v} as a nemesis"]
+        }
+      },
+      "wrappers": [
+        "According to the {city} Daily, {clue}",
+        "Police scanner chatter confirms that {clue}",
+        "A witness to the last rescue swears that {clue}"
+      ]
+    },
+    "spy": {
+      "entity": ["agent", "agents"],
+      "vars": {"group": "the Bureau of Quiet Affairs"},
+      "titles": ["Deep Cover", "Need to Know", "Codenames", "Eyes Only", "Spies of {city}"],
+      "stories": [
+        {"needs": ["alias", "day_job", "ability"], "text": "{group} runs {n} deep-cover {entities} out of {city}. Each has a codename, a cover job, and a specialty, and only the director knows how they all fit together."},
+        "A coded memo just landed on your desk at {group}. It describes {n} {entities} working in {city}, but every detail has been scrambled for security.",
+        {"needs": ["name"], "text": "Someone in {city} is leaking secrets, and the only way to find the mole is to confirm the true identity of all {n} {entities} on the roster."}
+      ],
+      "roles": {
+        "alias": {
+          "label": "Codenames",
+          "category": "Codename",
+          "samples": ["Nightjar", "Saffron", "Velvet", "Blackbird", "Zero", "Whisper", "Cobalt", "Juniper", "Foxglove", "Sable"],
+          "np": ["{v}", "the {entity} codenamed {v}"],
+          "vp": ["is codenamed {v}", "operates as {v}"],
+          "vp_neg": ["is not codenamed {v}", "doesn't operate as {v}"]
+        },
+        "ability": {
+          "label": "Gadgets",
+          "category": "Gadget",
+          "hint": "e.g. a laser wristwatch, invisible ink",
+          "samples": ["a laser wristwatch", "an exploding pen", "a grappling umbrella", "x-ray sunglasses", "a shoe phone", "a jetpack", "a voice changer", "a lock-picking ring", "invisible ink", "a briefcase drone"],
+          "np": ["the {entity} who carries {v}", "the {entity} with {v}"],
+          "vp": ["carries {v}", "never leaves home without {v}"],
+          "vp_neg": ["doesn't carry {v}", "has never been issued {v}"]
+        },
+        "day_job": {
+          "label": "Cover jobs",
+          "category": "Cover job",
+          "hint": "e.g. piano tuner, florist, travel agent",
+          "samples": ["museum guide", "tour bus driver", "wedding photographer", "ice cream vendor", "piano tuner", "dog groomer", "florist", "antiques dealer", "travel agent", "sommelier"],
+          "np": ["the {entity} undercover as the {v}", "the {entity} posing as the {v}"],
+          "vp": ["is undercover as the {v}", "poses as the {v}"],
+          "vp_neg": ["isn't undercover as the {v}", "doesn't pose as the {v}"]
+        },
+        "base": {
+          "label": "Safe houses",
+          "category": "Safe house",
+          "hint": "places, including 'the', e.g. the bakery basement",
+          "samples": ["the bakery basement", "the houseboat", "the old cinema", "the laundromat", "the botanical garden", "the parking garage", "the bookshop attic", "the ferry terminal", "the ski lodge", "the train station locker room"]
+        },
+        "nemesis": {
+          "label": "Handlers",
+          "category": "Handler",
+          "hint": "e.g. Mother, Control, The Gardener",
+          "samples": ["Mother", "Control", "The Accountant", "Uncle", "Mr. Gray", "Madame X", "The Gardener", "The Librarian", "Number Nine", "The Admiral"],
+          "np": ["the {entity} who reports to {v}", "the {entity} handled by {v}"],
+          "vp": ["reports to {v}", "takes orders from {v}"],
+          "vp_neg": ["doesn't report to {v}", "doesn't take orders from {v}"]
+        }
+      },
+      "wrappers": [
+        "Intercepted chatter reveals that {clue}",
+        "A decrypted file states that {clue}",
+        "A source at the embassy confirms that {clue}"
+      ]
+    },
+    "criminal mastermind": {
+      "entity": ["mastermind", "masterminds"],
+      "vars": {"group": "the Syndicate of Slightly Evil"},
+      "titles": ["Evil Genius Payroll", "Plots and Schemes", "Lair Assignments", "The Usual Suspects", "Masterminds of {city}"],
+      "stories": [
+        {"needs": ["alias", "name"], "text": "{group} is holding its annual meeting in {city}, and {n} {entities} have arrived with their latest schemes. Each goes by a sinister alias, and none of them will admit who they really are."},
+        {"needs": ["alias", "name"], "text": "Someone in {city} is plotting world domination. Actually, {n} someones are. The police know their aliases but not their real names."},
+        {"needs": ["alias", "name"], "text": "The {city} detective squad has pinned {n} sinister aliases to its corkboard. Your job is to connect each one to a real name before the next scheme hatches."},
+        "{group} has called {n} {entities} to {city} for its annual meeting. The guest list was supposed to be secret, but the notes left behind might give everything away."
+      ],
+      "roles": {
+        "alias": {
+          "label": "Villain names",
+          "category": "Alias",
+          "samples": ["Doctor Dread", "The Velvet Fist", "Baron Von Gloom", "Madame Mayhem", "The Puppeteer", "Count Calamity", "Professor Paradox", "Lord Ledger", "The Gilded Viper", "Mister Midnight"]
+        },
+        "ability": {
+          "label": "Evil schemes",
+          "category": "Scheme",
+          "hint": "e.g. stealing the moon, hypnotizing pigeons",
+          "samples": ["stealing the moon", "freezing the harbor", "hypnotizing pigeons", "shrinking city hall", "replacing all coffee with decaf", "cancelling weekends", "turning the river purple", "rigging the bake-off", "stealing every left sock", "building a giant robot"],
+          "np": ["the {entity} whose scheme is {v}", "the {entity} planning on {v}"],
+          "vp": ["is planning on {v}", "has a scheme for {v}"],
+          "vp_neg": ["isn't planning on {v}", "has nothing to do with {v}"]
+        },
+        "day_job": {
+          "label": "Day jobs",
+          "category": "Day job",
+          "hint": "e.g. dentist, crossing guard, pastry chef",
+          "samples": ["dentist", "kindergarten teacher", "mall Santa", "crossing guard", "pastry chef", "insurance agent", "museum curator", "florist", "golf caddie", "choir director"],
+          "np": ["the {v}", "the {entity} who works as the town {v}"],
+          "vp": ["is the {v}", "works as the town {v} by day"],
+          "vp_neg": ["is not the {v}", "doesn't work as the town {v}"]
+        },
+        "base": {
+          "label": "Lairs",
+          "category": "Lair",
+          "hint": "places, including 'the', e.g. the volcano",
+          "samples": ["the volcano", "the underwater dome", "the moon base", "the haunted castle", "the glacier fortress", "the abandoned theme park", "the blimp", "the sewer palace", "the desert pyramid", "the clock tower"]
+        },
+        "nemesis": {
+          "label": "Arch-enemies",
+          "category": "Arch-enemy",
+          "hint": "hero names",
+          "samples": ["Captain Comet", "The Crimson Shield", "Night Lark", "Professor Thunder", "Lady Lightning", "Iron Sparrow", "The Silver Fox", "Quantum Kid", "Major Marvelous", "The Gray Ghost"],
+          "np": ["the {entity} whose arch-enemy is {v}", "the {entity} always foiled by {v}"],
+          "vp": ["is always foiled by {v}", "has {v} as an arch-enemy"],
+          "vp_neg": ["is never foiled by {v}", "doesn't have {v} as an arch-enemy"]
+        }
+      },
+      "wrappers": [
+        "An anonymous tip says {clue}",
+        "Security footage shows that {clue}",
+        "A disgruntled henchman revealed that {clue}"
+      ]
+    }
+  }
+}

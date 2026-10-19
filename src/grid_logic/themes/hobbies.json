@@ -1,0 +1,99 @@
+{
+  "id": "hobbies",
+  "name": "Twice the Fun",
+  "blurb": "Each friend enjoys two different hobbies.",
+  "order": 2,
+  "entity": ["friend", "friends"],
+  "flavor": {
+    "club": [
+      "the Thursday Supper Club",
+      "the Maple Street book club",
+      "the community center",
+      "the neighborhood group chat",
+      "the old college crew"
+    ],
+    "season": ["spring", "summer", "autumn", "winter"]
+  },
+  "titles": [
+    "Twice the Fun",
+    "Double Booked",
+    "Two Hobbies Each",
+    "Hobby Hopping",
+    "Double Dabblers",
+    "Spare Time Squared"
+  ],
+  "stories": [
+    {"needs": ["hobby_one", "hobby_two"], "text": "{n_cap} {entities} from {club} each picked up two new hobbies this {season}. They've been comparing notes ever since, and nobody chose the same hobby as anyone else."},
+    {"needs": ["hobby_one", "hobby_two"], "text": "Nobody in {club} can sit still for long. Each of the {n} {entities} juggles exactly two hobbies, and no two {entities} share either one."},
+    {"needs": ["hobby_one", "hobby_two"], "text": "At the {season} potluck, {n} {entities} got to talking about how they spend their free time. It turns out each has exactly two hobbies, and all of them are different."},
+    "The members of {club} love comparing notes on how they spend their free time. This {season}, {n} {entities} shared their stories, and the details got jumbled along the way."
+  ],
+  "default_roles": ["name", "hobby_one", "hobby_two", "years", "club_day", "age"],
+  "roles": {
+    "name": {
+      "label": "Friends",
+      "category": "Friend",
+      "keywords": ["friend", "friends", "name", "person"]
+    },
+    "hobby_one": {
+      "label": "Hobby one",
+      "category": "Hobby One",
+      "hint": "e.g. knitting, hiking, chess",
+      "keywords": ["hobby one", "hobby 1", "first hobby", "hobby", "hobbies"],
+      "samples": ["knitting", "hiking", "chess", "gardening", "pottery", "cycling", "baking", "birdwatching", "origami", "kayaking", "piano", "geocaching"],
+      "np": ["the {entity} who enjoys {v}", "the {entity} who's into {v}", "the {v} fan"],
+      "vp": ["enjoys {v}", "is into {v}", "makes time for {v}"],
+      "vp_neg": ["doesn't enjoy {v}", "isn't into {v}", "never makes time for {v}"]
+    },
+    "hobby_two": {
+      "label": "Hobby two",
+      "category": "Hobby Two",
+      "hint": "e.g. painting, rock climbing, board games",
+      "keywords": ["hobby two", "hobby 2", "second hobby", "other hobby"],
+      "samples": ["painting", "rock climbing", "board games", "fishing", "calligraphy", "surfing", "jigsaw puzzles", "camping", "embroidery", "disc golf", "model trains", "trail running"],
+      "np": ["the {entity} who loves {v}", "the {v} enthusiast", "the {entity} who picked up {v}"],
+      "vp": ["loves {v}", "picked up {v}", "can't get enough of {v}"],
+      "vp_neg": ["doesn't love {v}", "didn't pick up {v}", "has never tried {v}"]
+    },
+    "years": {
+      "label": "Years of experience",
+      "category": "Experience",
+      "hint": "just the numbers, e.g. 1, 2, 3",
+      "keywords": ["year", "years", "experience"],
+      "samples": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+      "sample_run": true,
+      "unit": ["year", "years"],
+      "np": ["the {entity} with {vu} of experience", "the {entity} who started {vu} ago"],
+      "vp": ["has {vu} of experience", "started {vu} ago"],
+      "vp_neg": ["doesn't have {vu} of experience", "didn't start {vu} ago"],
+      "more": ["has more experience than", "has been at it longer than"],
+      "less": ["has less experience than", "is newer to their hobbies than"],
+      "more_by": ["has {d} more experience than", "started {d} earlier than"],
+      "less_by": ["has {d} less experience than", "started {d} later than"],
+      "most": ["has the most experience", "has been at it the longest"],
+      "least": ["has the least experience", "is the newest to their hobbies"]
+    },
+    "club_day": {
+      "label": "Club days",
+      "category": "Club Day",
+      "hint": "days of the week",
+      "keywords": ["day", "days", "weekday", "club"],
+      "samples": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "sample_run": true,
+      "np": ["the {entity} whose club meets on {v}", "the {entity} with {v} club nights"],
+      "vp": ["meets with their club on {v}", "has club night on {v}"],
+      "vp_neg": ["doesn't meet with their club on {v}", "doesn't have club night on {v}"],
+      "more": ["meets later in the week than"],
+      "less": ["meets earlier in the week than"],
+      "more_by": ["meets {d} after"],
+      "less_by": ["meets {d} before"],
+      "most": ["meets latest in the week"],
+      "least": ["meets earliest in the week"]
+    }
+  },
+  "wrappers": [
+    "Word around the club is that {clue}",
+    "As everyone at the potluck knows, {clue}",
+    "Someone overheard that {clue}"
+  ]
+}
